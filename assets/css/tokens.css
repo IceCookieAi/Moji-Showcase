@@ -1,0 +1,85 @@
+/* ============================================
+   MOJI SHOWCASE - Design Tokens
+   ============================================ */
+
+:root {
+  /* Colors */
+  --bg: #080808;
+  --bg-section: #0e0e11;
+  --bg-card: #111116;
+  --bg-card-hover: #16161c;
+  --border: rgba(255, 255, 255, 0.1);
+  --border-hover: rgba(255, 255, 255, 0.22);
+
+  /* Accent - violet-pink (default theme) */
+  --accent-1: #a855f7;
+  --accent-2: #ec4899;
+  --accent-1-dim: rgba(168, 85, 247, 0.15);
+  --accent-2-dim: rgba(236, 72, 153, 0.15);
+  --glow: rgba(168, 85, 247, 0.25);
+  --glow-strong: rgba(168, 85, 247, 0.45);
+  --accent-1-border: rgba(168, 85, 247, 0.4);
+  --accent-2-border: rgba(236, 72, 153, 0.45);
+
+  /* Gradient */
+  --gradient: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+  --gradient-text: linear-gradient(
+    135deg,
+    var(--accent-1) 0%,
+    var(--accent-2) 100%
+  );
+
+  /* Text */
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #475569;
+
+  /* Badge colors */
+  --badge-vip-bg: rgba(250, 204, 21, 0.15);
+  --badge-vip-color: #fbbf24;
+  --badge-ai-bg: rgba(34, 211, 238, 0.15);
+  --badge-ai-color: #22d3ee;
+  --badge-tag-bg: rgba(255, 255, 255, 0.06);
+  --badge-tag-color: var(--text-secondary);
+
+  /* Layout */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-card: 18px;
+  --radius-full: 9999px;
+
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 48px;
+  --spacing-2xl: 80px;
+
+  --container-max: 1200px;
+  --container-pad: clamp(16px, 4vw, 48px);
+
+  /* Typography */
+  --font-main: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 400ms ease;
+
+  /* Blur */
+  --blur-card: blur(12px);
+  --blur-glow: blur(40px);
+}
+
+/* ---- Pink-Gold theme ---- */
+[data-theme="pink-gold"] {
+  --accent-1: #ec4899;
+  --accent-2: #f59e0b;
+  --accent-1-dim: rgba(236, 72, 153, 0.15);
+  --accent-2-dim: rgba(245, 158, 11, 0.15);
+  --glow: rgba(236, 72, 153, 0.25);
+  --glow-strong: rgba(236, 72, 153, 0.45);
+  --accent-1-border: rgba(236, 72, 153, 0.4);
+  --accent-2-border: rgba(245, 158, 11, 0.45);
+}

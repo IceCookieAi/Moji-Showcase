@@ -1,0 +1,212 @@
+[
+  {
+    "id": "84b5b568-1396-464a-a0cf-0b565903c82c",
+    "name": "Кира",
+    "tier": "normal",
+    "category": "ai",
+    "description": "",
+    "image": "assets/avatars/kira.png",
+    "audio": "assets/audio/kira.wav",
+    "tags": []
+  },
+  {
+    "id": "b7851bf2-f4fe-475f-b0be-2120938e721b",
+    "name": "Ника",
+    "tier": "normal",
+    "category": "actor",
+    "description": "",
+    "image": "assets/avatars/nika.png",
+    "audio": "assets/audio/nika.wav",
+    "tags": []
+  },
+  {
+    "id": "e851cd9f-3551-4254-901a-effcdd4bb649",
+    "name": "Вова",
+    "tier": "normal",
+    "category": "actor",
+    "description": "",
+    "image": "assets/avatars/vova.png",
+    "audio": "assets/audio/vova.wav",
+    "tags": []
+  },
+  {
+    "id": "70e0f5f1-08a8-4915-ad5a-a6c5c3175836",
+    "name": "Билли",
+    "tier": "normal",
+    "category": "actor",
+    "description": "",
+    "image": "assets/avatars/billy.png",
+    "audio": "assets/audio/billy.wav",
+    "tags": []
+  },
+  {
+    "id": "9a4882a5-aa8f-453e-85fb-b01c3c300972",
+    "name": "Орк",
+    "tier": "normal",
+    "category": "actor",
+    "description": "",
+    "image": "assets/avatars/ork.png",
+    "audio": "assets/audio/ork.wav",
+    "tags": []
+  },
+  {
+    "id": "e8b9cdb5-add8-4f09-bc3c-e010149b88b5",
+    "name": "Гил",
+    "tier": "normal",
+    "category": "actor",
+    "description": "",
+    "image": "assets/avatars/gil.png",
+    "audio": "assets/audio/gil.wav",
+    "tags": []
+  },
+  {
+    "id": "93fac634-2ea4-4a42-b572-0ffa6e399702",
+    "name": "Джек",
+    "tier": "normal",
+    "category": "actor",
+    "description": "",
+    "image": "assets/avatars/jack.png",
+    "audio": "assets/audio/jack.wav",
+    "tags": []
+  },
+  {
+    "id": "296ff700-3f29-4bc8-962d-1ef1b80584c0",
+    "name": "Геймер",
+    "tier": "normal",
+    "category": "actor",
+    "description": "",
+    "image": "assets/avatars/gamer.png",
+    "audio": "assets/audio/gamer.wav",
+    "tags": []
+  },
+  {
+    "id": "c94f06b4-f80b-4403-9b88-c57808d55657",
+    "name": "Арти",
+    "tier": "normal",
+    "category": "actor",
+    "description": "",
+    "image": "assets/avatars/arti.png",
+    "audio": "assets/audio/arti.wav",
+    "tags": []
+  },
+  {
+    "id": "96c4fbbc-660b-466a-bff4-9f1fe8f8fadc",
+    "name": "Джо",
+    "tier": "normal",
+    "category": "actor",
+    "description": "",
+    "image": "assets/avatars/joe.png",
+    "audio": "assets/audio/joe.wav",
+    "tags": []
+  },
+  {
+    "id": "f8b578ae-2969-4117-8ea8-982e26bb5bf4",
+    "name": "Фан",
+    "tier": "normal",
+    "category": "actor",
+    "description": "",
+    "image": "assets/avatars/fan.png",
+    "audio": "assets/audio/fan.wav",
+    "tags": []
+  },
+  {
+    "id": "06a71004-aeb1-4c21-8018-477b9c8196c7",
+    "name": "Леди",
+    "tier": "normal",
+    "category": "actor",
+    "description": "",
+    "image": "assets/avatars/lady.png",
+    "audio": "assets/audio/lady.wav",
+    "tags": []
+  },
+  {
+    "id": "4d2ae3e7-40f7-4b96-afa0-9e8d68c0eee2",
+    "name": "Чел",
+    "tier": "normal",
+    "category": "actor",
+    "description": "",
+    "image": "assets/avatars/chel.png",
+    "audio": "assets/audio/chel.wav",
+    "tags": []
+  },
+  {
+    "id": "f4bad28f-fa18-4220-96ca-0ba29620b36d",
+    "name": "Бот",
+    "tier": "normal",
+    "category": "actor",
+    "description": "",
+    "image": "assets/avatars/bot.png",
+    "audio": "assets/audio/bot.wav",
+    "tags": []
+  },
+  {
+    "id": "48db659d-271b-439c-899f-016c7380798c",
+    "name": "Карен",
+    "tier": "normal",
+    "category": "actor",
+    "description": "",
+    "image": "assets/avatars/karen.png",
+    "audio": "assets/audio/karen.wav",
+    "tags": []
+  },
+  {
+    "id": "360b6fb8-b60a-449f-ba6b-7f2e544ad29d",
+    "name": "Саня",
+    "tier": "normal",
+    "category": "actor",
+    "description": "",
+    "image": "assets/avatars/sanya.png",
+    "audio": "assets/audio/sanya.wav",
+    "tags": []
+  },
+  {
+    "id": "ab6e9951-e9e1-4c3b-bb95-3d5d325fd1ba",
+    "name": "Маки",
+    "tier": "normal",
+    "category": "actor",
+    "description": "",
+    "image": "assets/avatars/maki.png",
+    "audio": "assets/audio/maki.wav",
+    "tags": []
+  },
+  {
+    "id": "38ded0e6-71c7-44a0-9eb9-fc9ad46bf103",
+    "name": "Кристи",
+    "tier": "normal",
+    "category": "actor",
+    "description": "",
+    "image": "assets/avatars/kristi.png",
+    "audio": "assets/audio/kristi.wav",
+    "tags": []
+  },
+  {
+    "id": "3a4f0158-8dae-4df8-ac75-fdd7a756b6d8",
+    "name": "Механик",
+    "tier": "normal",
+    "category": "actor",
+    "description": "",
+    "image": "assets/avatars/mekhanik.png",
+    "audio": "assets/audio/mekhanik.wav",
+    "tags": []
+  },
+  {
+    "id": "e8a012fb-40df-4cfe-8293-e611b1a23243",
+    "name": "Макс",
+    "tier": "normal",
+    "category": "actor",
+    "description": "",
+    "image": "assets/avatars/maks.png",
+    "audio": "assets/audio/maks.wav",
+    "tags": []
+  },
+  {
+    "id": "b0af4cac-54b2-4681-830c-f7fcbfee07c2",
+    "name": "Страж",
+    "tier": "normal",
+    "category": "actor",
+    "description": "",
+    "image": "assets/avatars/strazh.png",
+    "audio": "assets/audio/strazh.wav",
+    "tags": []
+  }
+]

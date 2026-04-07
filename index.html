@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="ru" data-theme="violet-pink">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moji - твой голос на стриме</title>
+    <meta
+      name="description"
+      content="Каждое сообщение в чате оживает - у него есть голос и лицо. Выбери своего персонажа и стань частью шоу."
+    />
+
+    <link rel="stylesheet" href="assets/css/tokens.css" />
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/components.css" />
+    <link rel="stylesheet" href="assets/css/sections.css" />
+  </head>
+  <body>
+    <!-- ========== HEADER ========== -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="#" class="logo">
+          <span class="logo-icon">🎭</span>
+          <span class="logo-text gradient-text">Moji</span>
+        </a>
+        <nav class="header-nav">
+          <a href="#avatars">Аватары</a>
+          <a href="#constructor">Сообщение</a>
+          <a href="#viewer">Зрителям</a>
+        </nav>
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          aria-label="Сменить тему"
+          title="Сменить тему"
+        >
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="12" cy="12" r="4" />
+            <path
+              d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+            />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- ========== HERO (compact) ========== -->
+    <section class="hero" id="hero">
+      <div class="hero-bg"></div>
+      <div class="container hero-content">
+        <h1>Твои слова <span class="gradient-text">звучат здесь</span></h1>
+        <p class="hero-desc">
+          Каждое сообщение в чате оживает - у него есть голос и лицо. Выбери
+          своего персонажа и стань частью шоу.
+        </p>
+      </div>
+    </section>
+
+    <!-- ========== AVATARS CAROUSEL ========== -->
+    <section class="section section--alt" id="avatars">
+      <div class="container">
+        <div class="section-header">
+          <h2>Аватары <span class="gradient-text">Moji</span></h2>
+          <p>Нажми Play чтобы услышать голос каждого персонажа.</p>
+        </div>
+        <div class="avatars-carousel-wrap">
+          <button
+            class="carousel-nav carousel-nav--prev"
+            id="carouselPrev"
+            aria-label="Назад"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+          <div class="avatars-carousel" id="avatarsCarousel">
+            <div class="avatars-loading">
+              <div class="spinner"></div>
+              <span>Загрузка аватаров…</span>
+            </div>
+          </div>
+          <button
+            class="carousel-nav carousel-nav--next"
+            id="carouselNext"
+            aria-label="Вперёд"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== MESSAGE CONSTRUCTOR ========== -->
+    <section class="section" id="constructor">
+      <div class="container">
+        <div class="section-header">
+          <h2>Составь <span class="gradient-text">сообщение</span></h2>
+          <p>Выбери аватара, напиши текст - получи готовую строку для чата.</p>
+        </div>
+
+        <div class="constructor-grid">
+          <!-- Left: text + avatar name -->
+          <div class="constructor-left">
+            <div class="redeem-methods">
+              <div class="constructor-label">Способ выкупа</div>
+              <div class="redeem-methods__grid">
+                <button class="redeem-method is-active" id="methodChat" data-method="chat">
+                  Сообщение в чате
+                </button>
+                <button class="redeem-method" id="methodPoints" data-method="points">
+                  Баллы канала
+                </button>
+                <button class="redeem-method redeem-method--premium" id="methodDonate" data-method="donate">
+                  Донат
+                </button>
+              </div>
+            </div>
+
+            <label class="constructor-label" for="msgText"
+              >Твоё сообщение</label
+            >
+            <textarea
+              class="constructor-textarea"
+              id="msgText"
+              placeholder="Привет, стример! Рад быть здесь сегодня…"
+              maxlength="500"
+            ></textarea>
+          </div>
+
+          <!-- Right: search + avatar picker grid -->
+          <div class="constructor-right">
+            <div class="constructor-search-wrap">
+              <svg
+                class="constructor-search-icon"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.35-4.35" />
+              </svg>
+              <input
+                class="constructor-search"
+                id="constructorSearch"
+                type="text"
+                placeholder="Поиск аватара…"
+                autocomplete="off"
+              />
+            </div>
+            <div class="constructor-avatars-grid" id="constructorAvatarsGrid">
+              <div class="avatars-loading" style="grid-column: 1/-1">
+                <div class="spinner"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Divider -->
+          <div class="constructor-divider"></div>
+
+          <!-- Preview (full-width) -->
+          <div class="constructor-preview">
+            <div class="constructor-preview__header">
+              <div class="constructor-preview__header-left">
+                <svg class="preview-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="3" y1="12" x2="21" y2="12"></line>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <span class="preview-title">TTS Preview</span>
+                <div class="constructor-preview__tabs">
+                  <button
+                    class="preview-tab is-active"
+                    data-mode="prefix"
+                    id="tabPrefix"
+                  >
+                    С префиксом
+                  </button>
+                  <button
+                    class="preview-tab"
+                    data-mode="noprefix"
+                    id="tabNoPrefix"
+                  >
+                    Без префикса
+                  </button>
+                </div>
+              </div>
+
+              <button class="copy-btn" id="copyBtn">
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect x="9" y="9" width="13" height="13" rx="2" />
+                  <path
+                    d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                  />
+                </svg>
+                <span>Copy</span>
+              </button>
+            </div>
+
+            <div class="constructor-preview__message" id="previewMessage">
+              <span class="msg-empty">Введи текст выше…</span>
+            </div>
+
+            <div class="constructor-preview__footer">
+              <div class="constructor-preview__hint" id="previewHint">
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 8v4M12 16h.01" />
+                </svg>
+                <span
+                  >Сначала установи аватара: <code>!setavatar Орк</code></span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TTS callout -->
+        <div class="tts-callout" style="margin-top: var(--spacing-xl)">
+          <div class="tts-callout__icon">🔮</div>
+          <div>
+            <h3>Голосовые теги - скоро</h3>
+            <p>
+              В будущем стримеры смогут включать эффекты прямо в тексте:
+              <code>[громко]</code>, <code>[быстро]</code>,
+              <code>[шёпот]</code> и другие.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== VIEWER FEATURES ========== -->
+    <section class="section section--alt" id="viewer">
+      <div class="container">
+        <div class="section-header">
+          <h2>Что может <span class="gradient-text">зритель</span></h2>
+          <p>
+            Moji даёт зрителям реальный контроль над стримом - у каждого свой
+            голос и аватар.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                />
+              </svg>
+            </div>
+            <h3>Twitch-чат</h3>
+            <p>
+              Пиши в чат - Moji озвучит твоё сообщение голосом твоего аватара.
+            </p>
+            <div class="feature-examples">
+              <div class="chat-example">
+                <span class="chat-prefix">Без префикса</span>
+                <code>Привет всем на стриме!</code>
+              </div>
+              <div class="chat-example">
+                <span class="chat-prefix"
+                  >С префиксом <em>(если включён)</em></span
+                >
+                <code>!tts: Привет всем на стриме!</code>
+              </div>
+            </div>
+            <p class="feature-note">
+              Стример сам настраивает, нужен ли префикс <code>!tts:</code>
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="4 17 10 11 4 5" />
+                <line x1="12" y1="19" x2="20" y2="19" />
+              </svg>
+            </div>
+            <h3>Команды</h3>
+            <p>Управляй своим присутствием на стриме прямо из чата.</p>
+            <div class="commands-list">
+              <div class="command-row">
+                <code>!setavatar &lt;имя&gt;</code>
+                <span>Выбрать аватара</span>
+              </div>
+              <div class="command-row">
+                <code>!skip</code>
+                <span>Пропустить своё сообщение</span>
+              </div>
+              <div class="command-row">
+                <code>!pause</code>
+                <span>Поставить паузу</span>
+              </div>
+              <div class="command-row">
+                <code>!start</code>
+                <span>Возобновить воспроизведение</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <line x1="8" y1="6" x2="21" y2="6" />
+                <line x1="8" y1="12" x2="21" y2="12" />
+                <line x1="8" y1="18" x2="21" y2="18" />
+                <line x1="3" y1="6" x2="3.01" y2="6" />
+                <line x1="3" y1="12" x2="3.01" y2="12" />
+                <line x1="3" y1="18" x2="3.01" y2="18" />
+              </svg>
+            </div>
+            <h3>Очередь и приоритеты</h3>
+            <p>
+              Три уровня очереди - у VIP-зрителей и донатеров сообщения
+              воспроизводятся быстрее.
+            </p>
+            <div class="queue-tiers">
+              <div class="queue-tier queue-tier--spotlight">
+                <span class="tier-dot"></span>
+                <div>
+                  <strong>Spotlight</strong>
+                  <span>Выделенный слот (до 4 зрителей)</span>
+                </div>
+              </div>
+              <div class="queue-tier queue-tier--priority">
+                <span class="tier-dot"></span>
+                <div>
+                  <strong>Priority</strong>
+                  <span>VIP, подписчики, донатеры</span>
+                </div>
+              </div>
+              <div class="queue-tier queue-tier--main">
+                <span class="tier-dot"></span>
+                <div>
+                  <strong>Main</strong>
+                  <span>Обычный чат</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="donation-callout">
+          <div class="donation-callout__icon">
+            <svg
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+              />
+            </svg>
+          </div>
+          <div>
+            <h3>Донаты через DonationAlerts</h3>
+            <p>
+              Задонать - твоё сообщение попадёт в Priority-очередь с голосом
+              выбранного аватара. Стример настраивает минимальную сумму.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <a href="#" class="logo">
+          <span class="logo-icon">🎭</span>
+          <span class="logo-text gradient-text">Moji</span>
+        </a>
+        <p class="footer-copy">AI-компаньон для Twitch-стримеров</p>
+        <a
+          href="https://github.com/IceCookie/moji"
+          class="btn btn--ghost btn--sm"
+          target="_blank"
+          rel="noopener"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"
+            />
+          </svg>
+          GitHub
+        </a>
+      </div>
+    </footer>
+
+    <script src="assets/js/audio-player.js"></script>
+    <script src="assets/js/avatars.js"></script>
+    <script src="assets/js/message-constructor.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
