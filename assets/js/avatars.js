@@ -14,7 +14,8 @@ async function loadAvatars() {
   if (_avatarsCache) return _avatarsCache;
   const res = await fetch('data/avatars.json');
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  _avatarsCache = await res.json();
+  const data = await res.json();
+  _avatarsCache = data.filter(av => av.category !== 'ai');
   return _avatarsCache;
 }
 

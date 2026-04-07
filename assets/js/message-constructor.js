@@ -17,18 +17,24 @@ async function initMessageConstructor() {
   const tabPrefix = document.getElementById("tabPrefix");
   const tabNoPrefix = document.getElementById("tabNoPrefix");
   const tabsContainer = document.querySelector(".constructor-preview__tabs");
+  const prefixInput = document.getElementById("prefixInput");
+  const prefixEdit = document.getElementById("prefixEdit");
+  const headerHint = document.getElementById("headerHint");
+  const charCount = document.getElementById("charCount");
 
   // Способы выкупа
   const methodChat = document.getElementById("methodChat");
   const methodPoints = document.getElementById("methodPoints");
   const methodDonate = document.getElementById("methodDonate");
+  const methodSub = document.getElementById("methodSub");
+  const DEFAULT_TEXT = "Привет, это Moji, добро пожаловать на стрим";
 
   if (!textarea || !grid || !preview) return;
 
   let selectedAvatar = null; // null = случайный
-  let prefixMode = true;
+  let prefixMode = false;    // Активен ли префикс tts (по умолчанию выкл)
   let currentMethod = "chat"; // chat, points, donate
-  let allCards = []; // [{el, avatar}]
+  let allCards = []; // {el, avatar}
 
   // ── Создать карточку аватара в гриде ─────────────────────────────────────
   function createMiniCard(avatar) {
@@ -170,8 +176,8 @@ async function initMessageConstructor() {
   // ── Способы выкупа ────────────────────────────────────────────────────────
   function setMethod(method) {
     currentMethod = method;
-    [methodChat, methodPoints, methodDonate].forEach((btn) => {
-      btn.classList.toggle("is-active", btn.dataset.method === method);
+    [methodChat, methodPoints, methodDonate, methodSub].forEach((btn) => {
+      if (btn) btn.classList.toggle("is-active", btn.dataset.method === method);
     });
     renderPreview();
   }
@@ -179,8 +185,14 @@ async function initMessageConstructor() {
   methodChat.addEventListener("click", () => setMethod("chat"));
   methodPoints.addEventListener("click", () => setMethod("points"));
   methodDonate.addEventListener("click", () => setMethod("donate"));
+  if (methodSub) {
+    methodSub.addEventListener("click", () => setMethod("sub"));
+  }
 
   textarea.addEventListener("input", renderPreview);
+  if (prefixInput) {
+    prefixInput.addEventListener("input", renderPreview);
+  }
   renderPreview();
 
   // ── Копировать ────────────────────────────────────────────────────────────
@@ -200,6 +212,7 @@ async function initMessageConstructor() {
       el.focus();
       el.select();
       el.setSelectionRange(0, text.length);
+      document.execCommand("copy");
       document.body.removeChild(el);
     }
     copyBtn.classList.add("is-copied");
@@ -211,13 +224,17 @@ async function initMessageConstructor() {
   });
 
   // ── Helpers ───────────────────────────────────────────────────────────────
-  const DEFAULT_TEXT = "Привет, это Moji, добро пожаловать на стрим";
 
   function buildRawMessage() {
     const text = textarea.value.trim() || DEFAULT_TEXT;
     const avatarPart = selectedAvatar ? `[${selectedAvatar.name}] ` : "";
+
+    // Префикс добавляется ТОЛЬКО если способ выкупа - CHAT и включен режим префикса
     const prefixVisible = currentMethod === "chat" && prefixMode;
-    return prefixVisible ? `!tts: ${avatarPart}${text}` : `${avatarPart}${text}`;
+    const prefixVal = prefixInput ? prefixInput.value.trim() : "tts";
+    const prefixStr = prefixVisible ? `${prefixVal} ` : "";
+
+    return `${prefixStr}${avatarPart}${text}`;
   }
 
   function renderPreview() {
@@ -231,25 +248,49 @@ async function initMessageConstructor() {
     const avatarPart = selectedAvatar
       ? `<span class="msg-avatar">[${escHtml(selectedAvatar.name)}]</span> `
       : "";
+
     const textPart = `<span class="msg-text msg-text-highlight${isDefault ? " msg-default" : ""}">${escHtml(text)}</span>`;
+
+    // Логика видимости префикса
     const isChat = currentMethod === "chat";
-    const prefixPart = isChat && prefixMode
-      ? `<span class="msg-prefix">!tts: </span>`
+    const prefixVisible = isChat && prefixMode;
+    const prefixVal = prefixInput ? prefixInput.value.trim() : "tts";
+
+    const prefixPart = prefixVisible
+      ? `<span class="msg-prefix">${escHtml(prefixVal)} </span>`
       : "";
 
+    // Оновляем содержимое превью
     preview.innerHTML = `${prefixPart}${avatarPart}${textPart}`;
 
-    // Видимость табов и подсказки
+    // Скрываем/показываем табы выбора префикса и инпут префикса (только для чата)
     if (tabsContainer) {
       tabsContainer.classList.toggle("is-hidden", !isChat);
     }
-    hint.classList.toggle("is-hidden", !isChat);
+    if (prefixEdit) {
+      prefixEdit.classList.toggle("is-hidden", !prefixVisible);
+    }
+    if (headerHint) {
+      headerHint.classList.toggle("is-hidden", !isChat);
+    }
 
-    if (isChat) {
-      hint.innerHTML = `
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
-        <span>Чтобы закрепить аватара навсегда, напиши в чат: <code>!setavatar ${selectedAvatar ? escHtml(selectedAvatar.name) : "&lt;имя&gt;"}</code></span>
-      `;
+    // Скрываем/показываем подсказку !setavatar
+    if (hint) {
+      hint.classList.toggle("is-hidden", !isChat);
+      if (isChat) {
+        hint.innerHTML = `
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+          <span>Чтобы закрепить аватара навсегда: <code>!setavatar ${selectedAvatar ? escHtml(selectedAvatar.name) : "имя"}</code></span>
+        `;
+      }
+    }
+
+    // Обновляем счетчик символов
+    if (charCount) {
+      const len = userText.length;
+      charCount.textContent = `${len}/500`;
+      charCount.classList.toggle("is-warning", len >= 400 && len < 500);
+      charCount.classList.toggle("is-error", len >= 500);
     }
   }
 

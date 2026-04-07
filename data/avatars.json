@@ -1,15 +1,5 @@
 [
   {
-    "id": "84b5b568-1396-464a-a0cf-0b565903c82c",
-    "name": "Кира",
-    "tier": "normal",
-    "category": "ai",
-    "description": "",
-    "image": "assets/avatars/kira.png",
-    "audio": "assets/audio/kira.wav",
-    "tags": []
-  },
-  {
     "id": "b7851bf2-f4fe-475f-b0be-2120938e721b",
     "name": "Ника",
     "tier": "normal",

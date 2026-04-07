@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initTheme();
   initAvatars();
   initMessageConstructor();
+  initViewerToggle();
   initScrollHeader();
 });
 
