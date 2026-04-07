@@ -1,499 +1,831 @@
 <!doctype html>
 <html lang="ru" data-theme="violet-pink">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moji - твой голос на стриме</title>
+    <meta
+      name="description"
+      content="Каждое сообщение в чате оживает - у него есть голос и лицо. Выбери своего персонажа и стань частью шоу."
+    />
+    <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Moji - твой голос на стриме</title>
-  <meta name="description"
-    content="Каждое сообщение в чате оживает - у него есть голос и лицо. Выбери своего персонажа и стань частью шоу." />
-  <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="assets/css/tokens.css" />
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/components.css" />
+    <link rel="stylesheet" href="assets/css/sections.css" />
+  </head>
 
-  <link rel="stylesheet" href="assets/css/tokens.css" />
-  <link rel="stylesheet" href="assets/css/base.css" />
-  <link rel="stylesheet" href="assets/css/components.css" />
-  <link rel="stylesheet" href="assets/css/sections.css" />
-</head>
-
-<body>
-  <header class="site-header">
-    <div class="container site-header__inner">
-      <div class="site-header__logo text-center">
-        <h1><span class="gradient-text">Moji TTS Озвучка</span></h1>
-        <p class="site-header__subtitle">Ознакомительная информация для зрителей</p>
-      </div>
-      <div class="site-header__actions">
-        <button class="viewer-restore-btn" id="showViewerBtn" aria-label="Показать функции зрителя"
-          title="Показать функции зрителя">
-          <svg class="icon-eye" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2">
-            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
-            <circle cx="12" cy="12" r="3" />
-          </svg>
-          <svg class="icon-eye-off is-hidden" width="20" height="20" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2">
-            <path
-              d="M9.88 9.88L2 2m7.73 7.73A3 3 0 1 0 14.12 14.12M9.88 9.88L1 12s3 7 10 7a10 10 0 0 0 5-1.34M23 12s-3-7-10-7a10 10 0 0 0-4.66 1.16m5.78 5.72L23 23" />
-          </svg>
-        </button>
-        <button class="theme-toggle" id="themeToggle" aria-label="Смени тему" title="Смени тему">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="4" />
-            <path
-              d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
-          </svg>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- ========== HERO ========== -->
-
-
-  <!-- ========== VIEWER FEATURES ========== -->
-  <section class="section" id="viewer">
-    <div class="container">
-      <div class="viewer-grid-frame" id="viewerFrame">
-
-        <div class="section-header viewer-section-header">
-          <div class="section-header__title-row">
-            <div class="section-header__spacer"></div>
-            <h2>Твой голос и аватар - <span class="gradient-text">прямо на стриме</span></h2>
-            <button class="viewer-toggle" id="viewerToggle" aria-label="Свернуть/Развернуть"
-              title="Свернуть/Развернуть">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="m18 15-6-6-6 6" />
-              </svg>
-            </button>
-          </div>
-          <p>
-            Moji даёт зрителям контроль над шоу
+  <body>
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <div class="site-header__logo text-center">
+          <h1><span class="gradient-text">Moji TTS Озвучка</span></h1>
+          <p class="site-header__subtitle">
+            Ознакомительная информация для зрителей
           </p>
-          <div class="viewer-section-actions" style="margin-top: 1rem; display: flex; justify-content: center;">
-            <a href="https://www.youtube.com/watch?v=3IDG2Nrm7Sg&t=27s" target="_blank" rel="noopener"
-              class="btn btn--ghost btn--sm">
-              <svg style="margin-right: 6px;" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path
-                  d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2C1 8.16 1 12 1 12s0 3.84.46 5.58a2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2C23 15.84 23 12 23 12s0-3.84-.46-5.58z">
-                </path>
-                <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polygon>
-              </svg>
-              Смотреть в деле
-            </a>
-          </div>
         </div>
-
-
-        <div class="features-grid">
-
-          <!-- 1. Как попасть в TTS -->
-          <div class="feature-card feature-card--tts">
-            <div class="feature-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M18.36 6.64a9 9 0 1 1-12.73 0" />
-                <line x1="12" y1="2" x2="12" y2="12" />
-              </svg>
-            </div>
-            <h3>Как попасть в TTS</h3>
-            <p>Стример выбирает, из каких источников озвучивать сообщения</p>
-            <div class="source-chips">
-              <div class="source-chip source-chip--chat">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                </svg>
-                <span>Сообщение в чате</span>
-              </div>
-              <div class="source-chip source-chip--points">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M12 8v4M12 16h.01" />
-                </svg>
-                <span>Баллы канала</span>
-              </div>
-              <div class="source-chip source-chip--donate">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <path
-                    d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-                </svg>
-                <span>Донат</span>
-              </div>
-              <div class="source-chip source-chip--sub">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <path
-                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-                </svg>
-                <span>Подписка</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- 2. Написать сообщение -->
-          <div class="feature-card feature-card--chat">
-            <div class="feature-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-              </svg>
-            </div>
-            <h3>Написать сообщение</h3>
-            <p>Напиши сообщение, остальное Moji сделает за тебя</p>
-            <div class="feature-examples">
-              <div class="chat-example">
-                <span class="chat-prefix">Сообщение за баллы/саб/донат</span>
-                <code>Привет всем на стриме!</code>
-              </div>
-              <div class="chat-example">
-                <span class="chat-prefix">Сообщение в чате</span>
-                <code>Привет всем на стриме!</code>
-              </div>
-              <div class="chat-example">
-                <span class="chat-prefix">Сообщение в чате с префиксом</span>
-                <code>tts Привет всем на стриме!</code>
-              </div>
-            </div>
-            <p class="feature-note">
-              Нужен ли префикс <code>и его текст</code> - решает стример
-            </p>
-          </div>
-
-          <!-- 3. Выбрать аватар -->
-          <div class="feature-card feature-card--avatar">
-            <div class="feature-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="7" r="4" />
-                <path d="M20 21v-2a4 4 0 0 0-3-3.87" />
-                <path d="M4 21v-2a4 4 0 0 1 3-3.87" />
-                <path d="M12 11v10" />
-                <path d="m9 18 3 3 3-3" />
-              </svg>
-            </div>
-            <h3>Выбрать аватар</h3>
-            <p>Ты сам решаешь, кто озвучит твое сообщение (изначально случайный)</p>
-            <div class="commands-list">
-              <div class="command-row">
-                <code>!setavatar &lt;имя&gt;</code>
-                <span>Закрепить аватара</span>
-              </div>
-              <div class="command-row">
-                <code>!setavatar</code>
-                <span>Сбросить</span>
-              </div>
-              <div class="command-row">
-                <code>[Имя] сообщение</code>
-                <span>Для конкретного сообщения</span>
-              </div>
-            </div>
-            <p class="feature-note">
-              Список доступных аватаров уточни у стримера
-            </p>
-          </div>
-
-          <!-- 4. AI-персонаж -->
-          <div class="feature-card feature-card--ai">
-            <div class="feature-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                <circle cx="12" cy="16" r="1" />
-              </svg>
-            </div>
-            <h3>Поговорить с AI</h3>
-            <p>Обратись к AI-персонажу по имени - он ответит когда придет твоя очередь</p>
-            <div class="feature-examples">
-              <div class="chat-example">
-                <span class="chat-prefix">Пример</span>
-                <code>Miku, расскажи анекдот</code>
-              </div>
-              <div class="chat-example">
-                <span class="chat-prefix">Или с запятой / знаком</span>
-                <code>Miku! что думаешь о котах?</code>
-              </div>
-            </div>
-            <p class="feature-note">
-              Имя AI-персонажа задаёт стример
-            </p>
-          </div>
-
-          <!-- 5. Очередь и приоритеты -->
-          <div class="feature-card feature-card--queue">
-            <div class="feature-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="8" y1="6" x2="21" y2="6" />
-                <line x1="8" y1="12" x2="21" y2="12" />
-                <line x1="8" y1="18" x2="21" y2="18" />
-                <line x1="3" y1="6" x2="3.01" y2="6" />
-                <line x1="3" y1="12" x2="3.01" y2="12" />
-                <line x1="3" y1="18" x2="3.01" y2="18" />
-              </svg>
-            </div>
-            <h3>Очередь и приоритеты</h3>
-            <p>Все сообщения идут в одну очередь. Баллы, донаты и подписка дают приоритет</p>
-            <div class="queue-tiers">
-              <div class="queue-tier queue-tier--spotlight">
-                <span class="tier-dot" aria-hidden="true">
-                </span>
-                <div>
-                  <strong>Spotlight</strong>
-                  <span>Закреплённый зритель - отдельная зона, высший приоритет</span>
-                </div>
-              </div>
-              <div class="queue-tier queue-tier--priority">
-                <span class="tier-dot" aria-hidden="true">
-                </span>
-                <div>
-                  <strong>Priority</strong>
-                  <span>Баллы канала, донаты и подписчики получают VIP - в начало очереди</span>
-                </div>
-              </div>
-              <div class="queue-tier queue-tier--main">
-                <span class="tier-dot" aria-hidden="true">
-                </span>
-                <div>
-                  <strong>Main</strong>
-                  <span>Обычные сообщения - в порядке поступления</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 6. Для модераторов -->
-          <div class="feature-card feature-card--mod">
-            <div class="feature-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
-                <path d="m9 12 2 2 4-4" />
-              </svg>
-            </div>
-            <h3>Для модераторов</h3>
-            <p>Управление очередью из чата. Доступно только модераторам и стримеру.</p>
-            <div class="commands-list">
-              <div class="command-row">
-                <code>!skip</code>
-                <span>Пропустить текущее сообщение</span>
-              </div>
-              <div class="command-row">
-                <code>!ban @username</code>
-                <span>Заблокировать пользователя</span>
-              </div>
-              <div class="command-row">
-                <code>!pause</code>
-                <span>Поставить очередь на паузу</span>
-              </div>
-              <div class="command-row">
-                <code>!start</code>
-                <span>Возобновить очередь</span>
-              </div>
-            </div>
-            <p class="feature-note">
-              Стример также может задавать фильтры для сообщений
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== MESSAGE CONSTRUCTOR ========== -->
-  <section class="section" id="constructor">
-    <div class="container">
-      <div class="constructor-grid">
-        <div class="section-header">
-          <div class="section-header__title-row">
-            <div class="section-header__spacer"></div>
-            <h2>Отправь свое <span class="gradient-text">первое сообщение</span></h2>
-            <div class="section-header__spacer"></div>
-          </div>
-          <p>Небольшой помошник по формированию сообщений</p>
-        </div>
-        <!-- Left: text + avatar name -->
-        <div class="constructor-left">
-          <div class="redeem-methods">
-            <div class="constructor-label">Способ попасть в очередь</div>
-            <div class="redeem-methods__grid">
-              <button class="redeem-method is-active" id="methodChat" data-method="chat">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                </svg>
-                Чат
-              </button>
-              <button class="redeem-method" id="methodPoints" data-method="points">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M12 8v4M12 16h.01" />
-                </svg>
-                Баллы
-              </button>
-              <button class="redeem-method" id="methodDonate" data-method="donate">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <path
-                    d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-                </svg>
-                Донат
-              </button>
-              <button class="redeem-method" id="methodSub" data-method="sub">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <path
-                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-                </svg>
-                Подписка
-              </button>
-            </div>
-          </div>
-
-          <div class="constructor-header-row">
-            <label class="constructor-label" for="msgText">Твоё сообщение</label>
-            <span class="char-counter" id="charCount">0/500</span>
-          </div>
-          <textarea class="constructor-textarea" id="msgText" placeholder="Привет, стример! Рад быть здесь сегодня…"
-            maxlength="500"></textarea>
-        </div>
-
-        <!-- Right: search + avatar picker grid -->
-        <div class="constructor-right">
-          <div class="constructor-search-wrap">
-            <svg class="constructor-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2">
-              <circle cx="11" cy="11" r="8" />
-              <path d="m21 21-4.35-4.35" />
+        <div class="site-header__actions">
+          <button
+            class="viewer-restore-btn"
+            id="showViewerBtn"
+            aria-label="Показать функции зрителя"
+            title="Показать функции зрителя"
+          >
+            <svg
+              class="icon-eye"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+              <circle cx="12" cy="12" r="3" />
             </svg>
-            <input class="constructor-search" id="constructorSearch" type="text" placeholder="Поиск аватара…"
-              autocomplete="off" />
-          </div>
-          <div class="constructor-avatars-grid" id="constructorAvatarsGrid">
-            <div class="avatars-loading" style="grid-column: 1/-1">
-              <div class="spinner"></div>
+            <svg
+              class="icon-eye-off is-hidden"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M9.88 9.88L2 2m7.73 7.73A3 3 0 1 0 14.12 14.12M9.88 9.88L1 12s3 7 10 7a10 10 0 0 0 5-1.34M23 12s-3-7-10-7a10 10 0 0 0-4.66 1.16m5.78 5.72L23 23"
+              />
+            </svg>
+          </button>
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Смени тему"
+            title="Смени тему"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="12" cy="12" r="4" />
+              <path
+                d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========== HERO ========== -->
+
+    <!-- ========== VIEWER FEATURES ========== -->
+    <section class="section" id="viewer">
+      <div class="container">
+        <div class="viewer-grid-frame" id="viewerFrame">
+          <div class="section-header viewer-section-header">
+            <div class="section-header__title-row">
+              <div class="section-header__spacer"></div>
+              <h2>
+                Твой голос и аватар -
+                <span class="gradient-text">прямо на стриме</span>
+              </h2>
+              <button
+                class="viewer-toggle"
+                id="viewerToggle"
+                aria-label="Свернуть/Развернуть"
+                title="Свернуть/Развернуть"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="m18 15-6-6-6 6" />
+                </svg>
+              </button>
+            </div>
+            <p>Moji даёт зрителям контроль над шоу</p>
+            <div
+              class="viewer-section-actions"
+              style="margin-top: 1rem; display: flex; justify-content: center"
+            >
+              <a
+                href="https://www.youtube.com/watch?v=3IDG2Nrm7Sg&t=27s"
+                target="_blank"
+                rel="noopener"
+                class="btn btn--ghost btn--sm"
+              >
+                <svg
+                  style="margin-right: 6px"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2C1 8.16 1 12 1 12s0 3.84.46 5.58a2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2C23 15.84 23 12 23 12s0-3.84-.46-5.58z"
+                  ></path>
+                  <polygon
+                    points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"
+                  ></polygon>
+                </svg>
+                Смотреть в деле
+              </a>
             </div>
           </div>
-        </div>
 
-        <!-- Divider -->
-        <div class="constructor-divider"></div>
-
-        <!-- Preview (full-width) -->
-        <div class="constructor-preview">
-          <div class="constructor-preview__header">
-            <div class="constructor-preview__header-left">
-              <svg class="preview-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-              </svg>
-              <span class="preview-title">TTS Preview</span>
-              <div class="constructor-preview__tabs" id="previewTabs">
-                <button class="preview-tab is-active" data-mode="noprefix" id="tabNoPrefix">
-                  Без префикса
-                </button>
-                <button class="preview-tab" data-mode="prefix" id="tabPrefix">
-                  С префиксом
-                </button>
+          <div class="features-grid">
+            <!-- 1. Как попасть в TTS -->
+            <div class="feature-card feature-card--tts">
+              <div class="feature-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M18.36 6.64a9 9 0 1 1-12.73 0" />
+                  <line x1="12" y1="2" x2="12" y2="12" />
+                </svg>
               </div>
-
-              <div class="constructor-preview__prefix-edit is-hidden" id="prefixEdit">
-                <span class="prefix-edit-label">Префикс:</span>
-                <div class="prefix-input-wrap">
-                  <input type="text" id="prefixInput" value="tts" maxlength="15" />
+              <h3>Как попасть в TTS</h3>
+              <p>Стример выбирает, из каких источников озвучивать сообщения</p>
+              <div class="source-chips">
+                <div class="source-chip source-chip--chat">
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                  >
+                    <path
+                      d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                    />
+                  </svg>
+                  <span>Сообщение в чате</span>
+                </div>
+                <div class="source-chip source-chip--points">
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 8v4M12 16h.01" />
+                  </svg>
+                  <span>Баллы канала</span>
+                </div>
+                <div class="source-chip source-chip--donate">
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                  >
+                    <path
+                      d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
+                    />
+                  </svg>
+                  <span>Донат</span>
+                </div>
+                <div class="source-chip source-chip--sub">
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                  >
+                    <path
+                      d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                    />
+                  </svg>
+                  <span>Подписка</span>
                 </div>
               </div>
             </div>
 
-            <button class="copy-btn" id="copyBtn">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="9" y="9" width="13" height="13" rx="2" />
-                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+            <!-- 2. Написать сообщение -->
+            <div class="feature-card feature-card--chat">
+              <div class="feature-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                  />
+                </svg>
+              </div>
+              <h3>Написать сообщение</h3>
+              <p>Напиши сообщение, остальное Moji сделает за тебя</p>
+              <div class="feature-examples">
+                <div class="chat-example">
+                  <span class="chat-prefix">Сообщение за баллы/саб/донат</span>
+                  <code>Привет всем на стриме!</code>
+                </div>
+                <div class="chat-example">
+                  <span class="chat-prefix">Сообщение в чате</span>
+                  <code>Привет всем на стриме!</code>
+                </div>
+                <div class="chat-example">
+                  <span class="chat-prefix">Сообщение в чате с префиксом</span>
+                  <code>tts Привет всем на стриме!</code>
+                </div>
+              </div>
+              <p class="feature-note">
+                Нужен ли префикс <code>и его текст</code> - решает стример
+              </p>
+            </div>
+
+            <!-- 3. Выбрать аватар -->
+            <div class="feature-card feature-card--avatar">
+              <div class="feature-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="12" cy="7" r="4" />
+                  <path d="M20 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M4 21v-2a4 4 0 0 1 3-3.87" />
+                  <path d="M12 11v10" />
+                  <path d="m9 18 3 3 3-3" />
+                </svg>
+              </div>
+              <h3>Выбрать аватар</h3>
+              <p>
+                Ты сам решаешь, кто озвучит твое сообщение (изначально
+                случайный)
+              </p>
+              <div class="commands-list">
+                <div class="command-row">
+                  <code>!setavatar &lt;имя&gt;</code>
+                  <span>Закрепить аватара</span>
+                </div>
+                <div class="command-row">
+                  <code>!setavatar</code>
+                  <span>Сбросить</span>
+                </div>
+                <div class="command-row">
+                  <code>[Имя] сообщение</code>
+                  <span>Для конкретного сообщения</span>
+                </div>
+              </div>
+              <p class="feature-note">
+                Список доступных аватаров уточни у стримера
+              </p>
+            </div>
+
+            <!-- 4. AI-персонаж -->
+            <div class="feature-card feature-card--ai">
+              <div class="feature-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                  <circle cx="12" cy="16" r="1" />
+                </svg>
+              </div>
+              <h3>Поговорить с AI</h3>
+              <p>
+                Обратись к AI-персонажу по имени - он ответит когда придет твоя
+                очередь
+              </p>
+              <div class="feature-examples">
+                <div class="chat-example">
+                  <span class="chat-prefix">Пример</span>
+                  <code>Кира расскажи анекдот</code>
+                </div>
+                <div class="chat-example">
+                  <span class="chat-prefix">Или с запятой / знаком</span>
+                  <code>Кира! что думаешь о котах?</code>
+                </div>
+              </div>
+              <p class="feature-note">Имя AI-персонажа задаёт стример</p>
+            </div>
+
+            <!-- 5. Очередь и приоритеты -->
+            <div class="feature-card feature-card--queue">
+              <div class="feature-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <line x1="8" y1="6" x2="21" y2="6" />
+                  <line x1="8" y1="12" x2="21" y2="12" />
+                  <line x1="8" y1="18" x2="21" y2="18" />
+                  <line x1="3" y1="6" x2="3.01" y2="6" />
+                  <line x1="3" y1="12" x2="3.01" y2="12" />
+                  <line x1="3" y1="18" x2="3.01" y2="18" />
+                </svg>
+              </div>
+              <h3>Очередь и приоритеты</h3>
+              <p>
+                Все сообщения идут в одну очередь. Баллы, донаты и подписка дают
+                приоритет
+              </p>
+              <div class="queue-tiers">
+                <div class="queue-tier queue-tier--spotlight">
+                  <span class="tier-dot" aria-hidden="true"> </span>
+                  <div>
+                    <strong>Spotlight</strong>
+                    <span
+                      >Закреплённый зритель - отдельная зона, высший
+                      приоритет</span
+                    >
+                  </div>
+                </div>
+                <div class="queue-tier queue-tier--priority">
+                  <span class="tier-dot" aria-hidden="true"> </span>
+                  <div>
+                    <strong>Priority</strong>
+                    <span
+                      >Баллы канала, донаты и подписчики получают VIP - в начало
+                      очереди</span
+                    >
+                  </div>
+                </div>
+                <div class="queue-tier queue-tier--main">
+                  <span class="tier-dot" aria-hidden="true"> </span>
+                  <div>
+                    <strong>Main</strong>
+                    <span>Обычные сообщения - в порядке поступления</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 6. Для модераторов -->
+            <div class="feature-card feature-card--mod">
+              <div class="feature-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+                  <path d="m9 12 2 2 4-4" />
+                </svg>
+              </div>
+              <h3>Для модераторов</h3>
+              <p>
+                Управление очередью из чата. Доступно только модераторам и
+                стримеру.
+              </p>
+              <div class="commands-list">
+                <div class="command-row">
+                  <code>!skip</code>
+                  <span>Пропустить текущее сообщение</span>
+                </div>
+                <div class="command-row">
+                  <code>!ban @username</code>
+                  <span>Заблокировать пользователя</span>
+                </div>
+                <div class="command-row">
+                  <code>!pause</code>
+                  <span>Поставить очередь на паузу</span>
+                </div>
+                <div class="command-row">
+                  <code>!start</code>
+                  <span>Возобновить очередь</span>
+                </div>
+              </div>
+              <p class="feature-note">
+                Стример также может задавать фильтры для сообщений
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== MESSAGE CONSTRUCTOR ========== -->
+    <section class="section" id="constructor">
+      <div class="container">
+        <div class="constructor-grid">
+          <div class="section-header">
+            <div class="section-header__title-row">
+              <div class="section-header__spacer"></div>
+              <h2>
+                Отправь свое <span class="gradient-text">первое сообщение</span>
+              </h2>
+              <div class="section-header__spacer"></div>
+            </div>
+            <p>Небольшой помошник по формированию сообщений</p>
+          </div>
+          <!-- Left: text + avatar name -->
+          <div class="constructor-left">
+            <div class="redeem-methods">
+              <div class="constructor-label">Способ попасть в очередь</div>
+              <div class="redeem-methods__grid">
+                <button
+                  class="redeem-method is-active"
+                  id="methodChat"
+                  data-method="chat"
+                >
+                  <svg
+                    width="11"
+                    height="11"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                  >
+                    <path
+                      d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                    />
+                  </svg>
+                  Чат
+                </button>
+                <button
+                  class="redeem-method"
+                  id="methodPoints"
+                  data-method="points"
+                >
+                  <svg
+                    width="11"
+                    height="11"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 8v4M12 16h.01" />
+                  </svg>
+                  Баллы
+                </button>
+                <button
+                  class="redeem-method"
+                  id="methodDonate"
+                  data-method="donate"
+                >
+                  <svg
+                    width="11"
+                    height="11"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                  >
+                    <path
+                      d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
+                    />
+                  </svg>
+                  Донат
+                </button>
+                <button class="redeem-method" id="methodSub" data-method="sub">
+                  <svg
+                    width="11"
+                    height="11"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                  >
+                    <path
+                      d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                    />
+                  </svg>
+                  Подписка
+                </button>
+              </div>
+            </div>
+
+            <div class="constructor-header-row">
+              <label class="constructor-label" for="msgText"
+                >Твоё сообщение</label
+              >
+              <span class="char-counter" id="charCount">0/500</span>
+            </div>
+            <textarea
+              class="constructor-textarea"
+              id="msgText"
+              placeholder="Привет, стример! Рад быть здесь сегодня…"
+              maxlength="500"
+            ></textarea>
+          </div>
+
+          <!-- Right: search + avatar picker grid -->
+          <div class="constructor-right">
+            <div class="constructor-search-wrap">
+              <svg
+                class="constructor-search-icon"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.35-4.35" />
               </svg>
-              <span>Copy</span>
-            </button>
+              <input
+                class="constructor-search"
+                id="constructorSearch"
+                type="text"
+                placeholder="Поиск аватара…"
+                autocomplete="off"
+              />
+            </div>
+            <div class="constructor-avatars-grid" id="constructorAvatarsGrid">
+              <div class="avatars-loading" style="grid-column: 1/-1">
+                <div class="spinner"></div>
+              </div>
+            </div>
           </div>
 
-          <div class="constructor-preview__message" id="previewMessage">
-            <span class="msg-text msg-text-highlight msg-default">Привет, это Moji, добро пожаловать на стрим</span>
-          </div>
+          <!-- Divider -->
+          <div class="constructor-divider"></div>
 
-          <div class="constructor-preview__footer">
-            <div class="constructor-preview__hint-group">
-              <div class="constructor-preview__header-hint" id="headerHint">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M12 16h.01M12 8v4" />
+          <!-- Preview (full-width) -->
+          <div class="constructor-preview">
+            <div class="constructor-preview__header">
+              <div class="constructor-preview__header-left">
+                <svg
+                  class="preview-icon"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="3" y1="12" x2="21" y2="12"></line>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <line x1="3" y1="18" x2="21" y2="18"></line>
                 </svg>
-                <span>Стример сам решает, будут озвучиваться все сообщения из чата или только с префиксом</span>
+                <span class="preview-title">TTS Preview</span>
+                <div class="constructor-preview__tabs" id="previewTabs">
+                  <button
+                    class="preview-tab is-active"
+                    data-mode="noprefix"
+                    id="tabNoPrefix"
+                  >
+                    Без префикса
+                  </button>
+                  <button class="preview-tab" data-mode="prefix" id="tabPrefix">
+                    С префиксом
+                  </button>
+                </div>
+
+                <div
+                  class="constructor-preview__prefix-edit is-hidden"
+                  id="prefixEdit"
+                >
+                  <span class="prefix-edit-label">Префикс:</span>
+                  <div class="prefix-input-wrap">
+                    <input
+                      type="text"
+                      id="prefixInput"
+                      value="tts"
+                      maxlength="15"
+                    />
+                  </div>
+                </div>
               </div>
-              <div class="constructor-preview__hint" id="previewHint">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M12 8v4M12 16h.01" />
+
+              <button class="copy-btn" id="copyBtn">
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect x="9" y="9" width="13" height="13" rx="2" />
+                  <path
+                    d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                  />
                 </svg>
-                <span>Чтобы закрепить аватара навсегда: <code>!setavatar Орк</code></span>
-              </div>
-              <div class="constructor-preview__hint">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M12 8v4M12 16h.01" />
-                </svg>
-                <span>По мере развития TTS в приложении появится возможность включать эффекты: <code>[смех]</code>,
-                  <code>[шепот]</code>, <code>[вздох]</code> и многие другие, следи за развитием проекта</span>
+                <span>Copy</span>
+              </button>
+            </div>
+
+            <div class="constructor-preview__message" id="previewMessage">
+              <span class="msg-text msg-text-highlight msg-default"
+                >Привет, это Moji, добро пожаловать на стрим</span
+              >
+            </div>
+
+            <div class="constructor-preview__footer">
+              <div class="constructor-preview__hint-group">
+                <div class="constructor-preview__header-hint" id="headerHint">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 16h.01M12 8v4" />
+                  </svg>
+                  <span
+                    >Стример сам решает, будут озвучиваться все сообщения из
+                    чата или только с префиксом</span
+                  >
+                </div>
+                <div class="constructor-preview__hint" id="previewHint">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 8v4M12 16h.01" />
+                  </svg>
+                  <span
+                    >Чтобы закрепить аватара навсегда:
+                    <code>!setavatar Орк</code></span
+                  >
+                </div>
+                <div class="constructor-preview__hint">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 8v4M12 16h.01" />
+                  </svg>
+                  <span
+                    >По мере развития TTS в приложении появится возможность
+                    включать эффекты: <code>[смех]</code>, <code>[шепот]</code>,
+                    <code>[вздох]</code> и многие другие, следи за развитием
+                    проекта</span
+                  >
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ========== FOOTER ========== -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <a href="#" class="logo">
-        <span class="logo-icon">🎭</span>
-        <span class="logo-text gradient-text">Moji</span>
-      </a>
-      <p class="footer-copy">TTS решение для Twitch-стримеров</p>
-      <div class="footer-social">
-        <a href="https://t.me/iceCookieAi" class="btn btn--ghost btn--sm btn--icon" target="_blank" rel="noopener"
-          aria-label="Telegram" title="Telegram">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 2L11 13"></path>
-            <path d="M22 2L15 22L11 13L2 9L22 2Z"></path>
-          </svg>
+    <!-- ========== FOOTER ========== -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <a href="#" class="logo">
+          <span class="logo-icon">🎭</span>
+          <span class="logo-text gradient-text">Moji</span>
         </a>
-        <a href="https://www.twitch.tv/icecookieai" class="btn btn--ghost btn--sm btn--icon" target="_blank"
-          rel="noopener" aria-label="Twitch" title="Twitch">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 2H3v16h5v4l4-4h5l4-4V2zM11 11V7M16 11V7"></path>
-          </svg>
-        </a>
-        <a href="https://github.com/IceCookieAi" class="btn btn--ghost btn--sm btn--icon" target="_blank" rel="noopener"
-          aria-label="GitHub" title="GitHub">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path
-              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-            </path>
-          </svg>
-        </a>
-        <a href="https://boosty.to/icecookieai" class="btn btn--primary btn--sm btn-boosty" target="_blank"
-          rel="noopener" aria-label="Boosty" title="Boosty">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26">
-            </polygon>
-          </svg>
-          Добавить на стрим
-        </a>
+        <p class="footer-copy">TTS решение для Twitch-стримеров</p>
+        <div class="footer-social">
+          <a
+            href="https://t.me/iceCookieAi"
+            class="btn btn--ghost btn--sm btn--icon"
+            target="_blank"
+            rel="noopener"
+            aria-label="Telegram"
+            title="Telegram"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M22 2L11 13"></path>
+              <path d="M22 2L15 22L11 13L2 9L22 2Z"></path>
+            </svg>
+          </a>
+          <a
+            href="https://www.twitch.tv/icecookieai"
+            class="btn btn--ghost btn--sm btn--icon"
+            target="_blank"
+            rel="noopener"
+            aria-label="Twitch"
+            title="Twitch"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M21 2H3v16h5v4l4-4h5l4-4V2zM11 11V7M16 11V7"></path>
+            </svg>
+          </a>
+          <a
+            href="https://github.com/IceCookieAi"
+            class="btn btn--ghost btn--sm btn--icon"
+            target="_blank"
+            rel="noopener"
+            aria-label="GitHub"
+            title="GitHub"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+              ></path>
+            </svg>
+          </a>
+          <a
+            href="https://boosty.to/icecookieai"
+            class="btn btn--primary btn--sm btn-boosty"
+            target="_blank"
+            rel="noopener"
+            aria-label="Boosty"
+            title="Boosty"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"
+              ></polygon>
+            </svg>
+            Добавить на стрим
+          </a>
+        </div>
       </div>
-    </div>
-  </footer>
+    </footer>
 
-  <script src="assets/js/audio-player.js"></script>
-  <script src="assets/js/avatars.js"></script>
-  <script src="assets/js/message-constructor.js"></script>
-  <script src="assets/js/viewer-toggle.js"></script>
-  <script src="assets/js/theme.js"></script>
-  <script src="assets/js/main.js"></script>
-</body>
-
+    <script src="assets/js/audio-player.js"></script>
+    <script src="assets/js/avatars.js"></script>
+    <script src="assets/js/message-constructor.js"></script>
+    <script src="assets/js/viewer-toggle.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
 </html>
